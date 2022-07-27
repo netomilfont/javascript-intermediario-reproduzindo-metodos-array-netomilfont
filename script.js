@@ -16,7 +16,7 @@ function map(array, callback) {
     arr.push(callback(array[i], i, array))
   }
 
-  return arr
+  return arr 
 }
 
 console.log(map(arrayMap, callbackMap));
