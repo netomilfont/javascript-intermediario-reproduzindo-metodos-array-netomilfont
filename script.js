@@ -9,10 +9,17 @@ function callbackMap(element, index, array) {
 }
 
 function map(array, callback) {
-  //sua lógica
+
+  let arr = []
+  for(let i = 0; i < array.length; i++) {
+
+    arr.push(callback(array[i], i, array))
+  }
+
+  return arr
 }
 
-//console.table(map(arrayMap, callbackMap));
+console.log(map(arrayMap, callbackMap));
 
 //Método Filter ---------
 
@@ -27,10 +34,19 @@ function callbackFilter(element, index, array) {
 }
 
 function filter(array, callback) {
-  //sua lógica
+  let newArray = []
+  for(let i =0; i < array.length; i++) {
+
+    if(callback(array[i], i, array) == true) {
+
+      newArray.push(array[i])
+    }
+  }
+
+  return newArray
 }
 
-//console.log(filter(arrayFilter, callbackFilter));
+console.log(filter(arrayFilter, callbackFilter));
 
 //Método Reduce ---------
 
@@ -43,8 +59,15 @@ function callbackReduce(acumulator, valorAtual) {
 }
 
 function reduce(array, callback, initialValue = 0) {
-  //sua lógica
+  let result = initialValue
+  for(let i =0; i < array.length; i++) {
+    
+    result = callback(result, array[i])
+
+  }
+
+  return result
 }
 
-// console.log(reduce(arrayReduce, callbackReduce));
-// console.log(reduce(arrayReduce, callbackReduce, 50));
+console.log(reduce(arrayReduce, callbackReduce));
+console.log(reduce(arrayReduce, callbackReduce, 50));
